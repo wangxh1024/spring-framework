@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'org.springframework'
+version '5.2.2.BUILD-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    
+    compile(
+            project(":spring-context"),
+            project(":spring-aop"),
+            project(":spring-aspects")
+    )
+    
+    testCompile("junit:junit:4.12")
+}
