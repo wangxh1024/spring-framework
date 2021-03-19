@@ -86,8 +86,21 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * {@link Configuration @Configuration} classes
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
+		/**
+		 * 		// 主要是注册内部的一些BeanFactoryPostProcessor处理器
+		 * 		this.reader = new AnnotatedBeanDefinitionReader(this);
+		 * 		// 设置扫描策略 主要是增加对@Component的扫描规则
+		 * 		this.scanner = new ClassPathBeanDefinitionScanner(this);
+		 */
 		this();
+
+		/**
+		 * 将配置类封装成BeanDefinition，然后注册到容器中
+		 */
 		register(componentClasses);
+		/**
+		 *
+		 */
 		refresh();
 	}
 

@@ -279,9 +279,16 @@ class ConfigurationClassParser {
 			}
 		}
 
+		/**
+		 * 解析ComponentScans和ComponentScan注解的参数到componentScans中
+		 */
 		// Process any @ComponentScan annotations
 		Set<AnnotationAttributes> componentScans = AnnotationConfigUtils.attributesForRepeatable(
 				sourceClass.getMetadata(), ComponentScans.class, ComponentScan.class);
+
+		/**
+		 * 遍历需要扫描的所有的包，逐个解析
+		 */
 		if (!componentScans.isEmpty() &&
 				!this.conditionEvaluator.shouldSkip(sourceClass.getMetadata(), ConfigurationPhase.REGISTER_BEAN)) {
 			for (AnnotationAttributes componentScan : componentScans) {

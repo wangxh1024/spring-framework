@@ -11,14 +11,8 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    
-    compile(
-            project(":spring-context"),
-            project(":spring-aop"),
-            project(":spring-aspects")
-    )
-    
-    testCompile("junit:junit:4.12")
+
+    compile(project(":spring-context"))
+
 }
