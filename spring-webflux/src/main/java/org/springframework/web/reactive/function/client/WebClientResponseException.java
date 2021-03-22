@@ -410,7 +410,7 @@ public class WebClientResponseException extends WebClientException {
 	}
 
 	/**
-	 * {@link WebClientResponseException} for status HTTP 503 Service Unavailable.
+	 * {@link WebClientResponseException} for status HTTP 503 service Unavailable.
 	 * @since 5.1
 	 */
 	@SuppressWarnings("serial")

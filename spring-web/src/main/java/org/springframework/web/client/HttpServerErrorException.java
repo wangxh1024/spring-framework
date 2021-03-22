@@ -181,7 +181,7 @@ public class HttpServerErrorException extends HttpStatusCodeException {
 	}
 
 	/**
-	 * {@link HttpServerErrorException} for status HTTP 503 Service Unavailable.
+	 * {@link HttpServerErrorException} for status HTTP 503 service Unavailable.
 	 * @since 5.1
 	 */
 	@SuppressWarnings("serial")

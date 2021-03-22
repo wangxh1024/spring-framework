@@ -1,8 +1,8 @@
 package com.demo.controller;
 
-import com.demo.Service.ImportService;
-import com.demo.Service.ScanServcie;
-import com.demo.Service.SelectorBean;
+import com.demo.service.ImportService;
+import com.demo.service.ScanServcie;
+import com.demo.service.BeanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -18,7 +18,7 @@ public class DemoController {
 	private ScanServcie scanServcie;
 
 	@Resource
-	public SelectorBean selectorBean;
+	public BeanService selectorBean;
 
 
 }

@@ -270,6 +270,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 	 */
 	public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 		List<BeanDefinitionHolder> configCandidates = new ArrayList<>();
+		// 获取所有的配置类
 		String[] candidateNames = registry.getBeanDefinitionNames();
 
 		for (String beanName : candidateNames) {
@@ -322,7 +323,10 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 		Set<BeanDefinitionHolder> candidates = new LinkedHashSet<>(configCandidates);
 		Set<ConfigurationClass> alreadyParsed = new HashSet<>(configCandidates.size());
 		do {
-			// 注册包扫描的类
+			// 解析配置类，
+			// 1，扫描@ComponentScan和@ComponentScans指定的包路径，然后封装成BeanDefinition，注册到Spring容器中
+			// 2，解析@Import导入的类，然后对其进行配置解析
+			// 3，解析@Bean注解的方法，然后存入到配置类中
 			parser.parse(candidates);
 			parser.validate();
 
@@ -335,7 +339,7 @@ public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPo
 						registry, this.sourceExtractor, this.resourceLoader, this.environment,
 						this.importBeanNameGenerator, parser.getImportRegistry());
 			}
-			// 注册@Bean @Import制定的类
+			// 对解析的配置类进行@Import和@Bean解析，然后封装成BeanDefinition中
 			this.reader.loadBeanDefinitions(configClasses);
 			alreadyParsed.addAll(configClasses);
 

@@ -1,4 +1,4 @@
-package com.demo.Service;
+package com.demo.service;
 
 public class ImportService {
 }

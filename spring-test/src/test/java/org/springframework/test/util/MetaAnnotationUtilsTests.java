@@ -454,7 +454,7 @@ class MetaAnnotationUtilsTests {
 	@SuppressWarnings("unchecked")
 	void findAnnotationDescriptorForTypesOnAnnotatedClassWithMissingTargetMetaAnnotation() {
 		// InheritedAnnotationClass is NOT annotated or meta-annotated with @Component,
-		// @Service, or @Order, but it is annotated with @Transactional.
+		// @service, or @Order, but it is annotated with @Transactional.
 		UntypedAnnotationDescriptor descriptor = findAnnotationDescriptorForTypes(
 				InheritedAnnotationClass.class, Service.class, Component.class, Order.class);
 		assertThat(descriptor).as("Should not find @Component on InheritedAnnotationClass").isNull();

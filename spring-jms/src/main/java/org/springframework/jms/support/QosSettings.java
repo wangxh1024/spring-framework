@@ -21,7 +21,7 @@ import javax.jms.Message;
 import org.springframework.lang.Nullable;
 
 /**
- * Gather the Quality-of-Service settings that can be used when sending a message.
+ * Gather the Quality-of-service settings that can be used when sending a message.
  *
  * @author Stephane Nicoll
  * @since 5.0
